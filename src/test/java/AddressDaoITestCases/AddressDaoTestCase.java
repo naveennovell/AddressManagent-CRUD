@@ -5,7 +5,6 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 import com.capgemini.greatoutdoors.dao.AddressDaoImpl;
-import com.capgemini.greatoutdoors.dto.Address;
 
 public class AddressDaoTestCase {
 	AddressDaoImpl impl = new AddressDaoImpl();

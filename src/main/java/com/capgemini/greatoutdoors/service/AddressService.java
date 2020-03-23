@@ -1,12 +1,11 @@
 package com.capgemini.greatoutdoors.service;
 
-import java.util.List;
-
 import com.capgemini.greatoutdoors.dto.Address;
+import com.capgemini.greatoutdoors.exception.InputMisMatchException;
 
 public interface AddressService {
-	List<Address> viewAllAddress(String addressid);
-	boolean addAddress( Address addressDTO);
-	boolean updateAddress(Address addressDTO);
-	boolean deleteAddress(Address adressDTO);	
+	public Address viewAllAddress(String addressId) throws InputMisMatchException;
+	public boolean addAddress(Address obj) throws InputMisMatchException;
+	public boolean updateAddress(Address obj,String address) throws InputMisMatchException;
+	public boolean deleteAddress(String address) throws InputMisMatchException;	
 }

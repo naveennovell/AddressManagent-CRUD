@@ -1,11 +1,10 @@
 package com.capgemini.greatoutdoors.service;
 
 import com.capgemini.greatoutdoors.dao.PlaceOrderDaoImpl;
-import com.capgemini.greatoutdoors.dto.Address;
 import com.capgemini.greatoutdoors.dto.PlaceAnOrder;
 import com.capgemini.greatoutdoors.exception.InputMisMatchException;
 
-public class PlaceOrderServiceImpl {
+public class PlaceOrderServiceImpl implements PlaceOrder {
 	PlaceOrderDaoImpl impl = new PlaceOrderDaoImpl();
 	String result = " ";
 

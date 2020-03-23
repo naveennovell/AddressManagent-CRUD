@@ -1,7 +1,5 @@
 package com.capgemini.greatoutdoors.service;
 
-import java.util.List;
-
 import com.capgemini.greatoutdoors.dao.AddressDaoImpl;
 import com.capgemini.greatoutdoors.dto.Address;
 import com.capgemini.greatoutdoors.exception.InputMisMatchException;
@@ -9,7 +7,7 @@ import com.capgemini.greatoutdoors.exception.InputMisMatchException;
 
 
 
-public class AddressServiceImpl {
+public class AddressServiceImpl implements AddressService{
 	
 	AddressDaoImpl addressDao=new AddressDaoImpl();
 		public Address viewAllAddress(String addressId) throws InputMisMatchException
@@ -86,5 +84,9 @@ public class AddressServiceImpl {
 			 }
 		}
 		return result;
+	}
+	public void justforfun()
+	{
+		System.out.println("address service normal method");
 	}
 }

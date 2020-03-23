@@ -5,14 +5,11 @@ import java.util.Scanner;
 import com.capgemini.greatoutdoors.dto.Address;
 import com.capgemini.greatoutdoors.dto.PlaceAnOrder;
 import com.capgemini.greatoutdoors.exception.InputMisMatchException;
+import com.capgemini.greatoutdoors.service.AddressService;
 import com.capgemini.greatoutdoors.service.AddressServiceImpl;
 import com.capgemini.greatoutdoors.service.PlaceOrderServiceImpl;
 import com.capgemini.greatoutdoors.util.AddressRepository;
 import com.capgemini.greatoutdoors.util.PlaceOrderRepository;
-
-
-
-
 
 
 public class UserInterface {
@@ -21,19 +18,19 @@ public class UserInterface {
 			new AddressRepository();
 			new PlaceOrderRepository();
 			
-			AddressServiceImpl addressService=new AddressServiceImpl();
+			AddressService addressService=new AddressServiceImpl();
 			
 			
-			System.out.println("choose 1: view a address "+"\n"+"2: add a address "+"\n"+"3 for update address"+"\n"+"4 : delete a address"
+			System.out.println("choose"+"\n"+"1: view a address "+"\n"+"2: add a address "+"\n"+"3 update address"+"\n"+"4 : delete a address"
 					+ "\n"+"5 : place a order");
-			int choose ;
+			String choose ;
 			Scanner scan = new Scanner(System.in);
-			choose = scan.nextInt();
+			choose = scan.next();
 		
 			
 			switch(choose)
 			{
-			case 1:
+			case "1":
 			 System.out.println("enter addressId");
 			 String addressId;
 				Scanner viewScan = new Scanner(System.in);
@@ -50,7 +47,7 @@ public class UserInterface {
 						
 			//System.out.println(obj.viewAllAddress(addressId));
 				break;
-			case 2:
+			case "2":
 				String addressId1;
 				Scanner AddressScan = new Scanner(System.in);
 				System.out.println("enter  address id");
@@ -88,7 +85,7 @@ public class UserInterface {
 					System.out.println(e.getMessage());
 				}
 				break;
-			case 3:
+			case "3":
 				System.out.println("enter an addressId to update");
 				Scanner updateScan = new Scanner(System.in);
 				String choice;
@@ -127,7 +124,7 @@ public class UserInterface {
 					e1.printStackTrace();
 				}
 				break;
-			case 4:
+			case "4":
 				System.out.println("enter an address id to delete");
 				Scanner deleteScan = new Scanner(System.in);
 				String delete = deleteScan.next();
@@ -142,7 +139,7 @@ public class UserInterface {
 					e.printStackTrace();
 				}
 				break;
-			case 5:
+			case "5":
 				System.out.println("enter addressId");
 				String checkAddressId;
 				Scanner checkScan = new Scanner(System.in);
@@ -151,7 +148,7 @@ public class UserInterface {
 				try {
 					PlaceAnOrder output = impl.placeOrderPrice(checkAddressId);
 					System.out.println("order placed Successfully : ");
-					System.out.println("AddressId: "+output.getAddressId()+"\n"+"pride : "+output.getPrice()+" \n"+"ProductId: "+output.getProductId()+" \n"+"UserId: "+output.getUserId());
+					System.out.println("AddressId: "+output.getAddressId()+"\n"+"price : "+output.getPrice()+" \n"+"ProductId: "+output.getProductId()+" \n"+"UserId: "+output.getUserId());
 
 				} catch (InputMisMatchException e) {
 					// TODO Auto-generated catch block
@@ -161,10 +158,7 @@ public class UserInterface {
 				 break;
 			default: 
 				System.out.println("choose correct Number");
-			}
-			
-		
-				
+			}	
 		}
 }
 

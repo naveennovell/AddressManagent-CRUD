@@ -1,17 +1,10 @@
 package com.capgemini.greatoutdoors.dao;
 
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
-import java.util.Map;
-import java.util.Scanner;
-
-
-
 import com.capgemini.greatoutdoors.dto.Address;
 import com.capgemini.greatoutdoors.util.AddressRepository;
 
-public class AddressDaoImpl{
+public class AddressDaoImpl implements AddressDao {
 	public Address viewAllAddress(String addressId)
 	{
 		

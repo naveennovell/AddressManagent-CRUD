@@ -2,14 +2,19 @@ package AddressServiceTestCases;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.Date;
+
 import org.junit.Test;
 
 import com.capgemini.greatoutdoors.dto.Address;
+import com.capgemini.greatoutdoors.dto.PlaceAnOrder;
 import com.capgemini.greatoutdoors.exception.InputMisMatchException;
 import com.capgemini.greatoutdoors.service.AddressServiceImpl;
+import com.capgemini.greatoutdoors.service.PlaceOrderServiceImpl;
 
 public class AddressServiceTestCase {
 	AddressServiceImpl impl =new  AddressServiceImpl();
+	PlaceOrderServiceImpl impl1 = new PlaceOrderServiceImpl();
 	
 	
 	//------->        test cases for Update function <-----------------------------//
@@ -67,6 +72,40 @@ public class AddressServiceTestCase {
 	{
 		  boolean actual = impl.deleteAddress("101");
 		 assertEquals(true, actual);
+	}
+	
+//------------->	//test cases for place a order// <------------------
+	
+	
+	@Test(expected = Exception.class)
+	public void placeOrderTest() throws InputMisMatchException 
+	{
+		Date d = new Date(2020/02/15);
+		PlaceAnOrder  expected = new  PlaceAnOrder ("101","A101","101",(byte)03,d,d,240.0);
+		  PlaceAnOrder actual = impl1.placeOrderPrice("101");
+		   
+		 assertEquals(expected, actual);
+	}
+	
+	
+	@Test(expected = Exception.class)
+	public void placeOrderTest1() throws InputMisMatchException 
+	{
+		Date d = new Date(2020/02/15);
+		PlaceAnOrder  expected = new  PlaceAnOrder ("101","A101","101",(byte)03,d,d,240.0);
+		  PlaceAnOrder actual = impl1.placeOrderPrice("");
+		   
+		 assertEquals("Address ID should not be" , actual);
+	}
+	
+	@Test(expected = Exception.class)
+	public void placeOrderTest2() throws InputMisMatchException 
+	{
+		Date d = new Date(2020/02/15);
+		PlaceAnOrder  expected = null;
+		  PlaceAnOrder actual = impl1.placeOrderPrice("");
+		   
+		 assertEquals("Address for gven Address ID is not found" , actual);
 	}
 }
 

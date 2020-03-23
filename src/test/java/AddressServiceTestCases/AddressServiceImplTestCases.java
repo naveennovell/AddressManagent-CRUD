@@ -1,8 +1,6 @@
 package AddressServiceTestCases;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-
 import org.junit.Test;
 import com.capgemini.greatoutdoors.dto.Address;
 import com.capgemini.greatoutdoors.exception.InputMisMatchException;

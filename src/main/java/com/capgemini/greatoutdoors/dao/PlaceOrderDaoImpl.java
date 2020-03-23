@@ -1,22 +1,18 @@
 package com.capgemini.greatoutdoors.dao;
 
 import java.util.List;
-import java.util.Scanner;
-
-import com.capgemini.greatoutdoors.dto.Address;
 import com.capgemini.greatoutdoors.dto.PlaceAnOrder;
-import com.capgemini.greatoutdoors.util.AddressRepository;
 import com.capgemini.greatoutdoors.util.PlaceOrderRepository;
 
-public class PlaceOrderDaoImpl {
+public class PlaceOrderDaoImpl implements PlaceOrder{
 		public PlaceAnOrder placeOrderPrice(String address)
 		{
 			List<PlaceAnOrder>place = PlaceOrderRepository.getPlace();
-			for(PlaceAnOrder i:place)
+			for(PlaceAnOrder order:place)
 			{
-				if(i.getAddressId().equals(address))
+				if(order.getAddressId().equals(address))
 				
-					return i;
+					return order;
 			}
 			return null;
 		}
